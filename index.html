@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ronny ❤️ Helen</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #080808;
+            color: white;
+            font-family: Georgia, serif;
+        }
+
+        .pantalla {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .corazon {
+            font-size: 70px;
+            animation: latido 1.5s infinite;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #d8d8d8;
+            margin-bottom: 15px;
+        }
+
+        .fecha {
+            color: #999;
+            font-size: 17px;
+            margin-bottom: 40px;
+        }
+
+        button {
+            background: transparent;
+            color: white;
+            border: 1px solid #ffffff;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: white;
+            color: black;
+            transform: scale(1.05);
+        }
+
+        @keyframes latido {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+        .historia {
+            display: none;
+            max-width: 700px;
+            padding: 30px;
+            text-align: center;
+            animation: aparecer 1.5s ease;
+        }
+
+        .historia h1 {
+            font-size: 38px;
+            margin-bottom: 30px;
+        }
+
+        .historia p {
+            color: #d0d0d0;
+            font-size: 19px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .historia .corazon-pequeno {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .recuerdos {
+            display: none;
+            width: 100%;
+            max-width: 900px;
+            padding: 40px 20px;
+            text-align: center;
+            animation: aparecer 1.5s ease;
+        }
+
+        .recuerdos h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo {
+            color: #aaa;
+            margin-bottom: 35px;
+            font-size: 17px;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .foto {
+            background: #111;
+            border: 1px solid #292929;
+            border-radius: 15px;
+            padding: 15px;
+            transition: 0.3s;
+        }
+
+        .foto:hover {
+            transform: translateY(-5px);
+            border-color: #555;
+        }
+
+        .foto-placeholder {
+            height: 200px;
+            background: #1b1b1b;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .foto h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: normal;
+        }
+
+        .foto p {
+            color: #999;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+
+            .recuerdos h1 {
+                font-size: 30px;
+            }
+
+        }
+
+        .contador {
+            display: none;
+            width: 100%;
+            max-width: 900px;
+            padding: 50px 20px;
+            text-align: center;
+            animation: aparecer 1.5s ease;
+        }
+
+        .contador h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .tiempo {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 45px 0;
+            flex-wrap: wrap;
+        }
+
+        .tiempo-caja {
+            width: 130px;
+            padding: 25px 10px;
+            background: #111;
+            border: 1px solid #292929;
+            border-radius: 15px;
+        }
+
+        .tiempo-caja span {
+            display: block;
+            font-size: 35px;
+            margin-bottom: 8px;
+        }
+
+        .tiempo-caja small {
+            color: #999;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .contando {
+            color: #aaa;
+            font-size: 18px;
+        }
+
+        @media (max-width: 600px) {
+
+            .tiempo {
+                gap: 10px;
+            }
+
+            .tiempo-caja {
+                width: 120px;
+            }
+
+            .contador h1 {
+                font-size: 30px;
+            }
+
+        }
+
+.musica {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+    padding: 50px 20px;
+    text-align: center;
+    animation: aparecer 1.5s ease;
+}
+
+.musica h1 {
+    font-size: 38px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.canciones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 40px 0;
+}
+
+.cancion {
+    background: #111;
+    border: 1px solid #292929;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.cancion:hover {
+    transform: translateY(-3px);
+    border-color: #555;
+}
+
+.cancion h3 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.cancion p {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.cancion audio {
+    width: 100%;
+}
+     
+          .foto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.foto img:hover {
+    transform: scale(1.03);
+}
+
+  .visor {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.visor img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 15px;
+}
+
+.cerrar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+     .final {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: aparecer 1.5s ease;
+}
+
+.final h1 {
+    font-size: 38px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.final p {
+    color: #aaa;
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+.opciones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 100px;
+    position: relative;
+}
+
+.btn-si {
+    background: white;
+    color: black;
+}
+
+.btn-no {
+    position: relative;
+}
+
+.mensaje-final {
+    display: none;
+    margin-top: 35px;
+    animation: aparecer 1.5s ease;
+}
+
+.mensaje-final h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.mensaje-final p {
+    color: #ccc;
+    line-height: 1.8;
+    max-width: 600px;
+}
+
+.corazon-final {
+    position: fixed;
+    font-size: 25px;
+    animation: caer 3s linear forwards;
+    pointer-events: none;
+    z-index: 2000;
+}
+
+@keyframes caer {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+    </style>
+</head>
+   <body>
+
+    <!-- PANTALLA INICIAL -->
+
+    <div class="pantalla">
+
+        <div class="corazon">❤️</div>
+
+        <h1>Para mi niña preciosa</h1>
+
+        <h2>Felices dos años, my lovv ❤️</h2>
+
+        <p class="fecha">07/10/2024 — ∞</p>
+
+        <button onclick="comenzar()">Comenzar</button>
+
+    </div>
+
+
+    <!-- CARTA -->
+
+    <div class="historia" id="historia">
+
+        <div class="corazon-pequeno">♡</div>
+
+        <h1>Para ti, mi niña preciosa</h1>
+
+        <p>
+            Pensar que hace más de dos años que llevamos amándonos me parece increíble.
+            El hecho de que nuestra conexión haya sido tan fuerte y tan real que hoy
+            cumplimos dos años es algo que todavía me parece increíble.
+        </p>
+
+        <p>
+            Puedo decir una y mil veces que te amo. Amo todo el tiempo que he pasado
+            contigo, todo lo bueno y también lo malo. Nos hemos dado mucho, nos hemos
+            ayudado y nos hemos amado, y creo que eso es lo más importante:
+            que nos sigamos amando.
+        </p>
+
+        <p>
+            Desde los momentos en los que te veía en el colegio, hasta ahora que ya
+            no nos vemos mucho, no puedo dejar de pensarte, de extrañarte y de quererte tanto.
+        </p>
+
+        <p>
+            Quiero seguir contigo toda la vida.
+        </p>
+
+        <p>
+            Espero que te guste este pequeño detalle de tu inge &lt;3
+        </p>
+
+        <button onclick="mostrarRecuerdos()">Ver nuestros recuerdos ❤️</button>
+
+    </div>
+
+
+    <!-- RECUERDOS -->
+
+    <div class="recuerdos" id="recuerdos">
+
+        <div class="corazon-pequeno">♡</div>
+
+        <h1>Nuestros recuerdos</h1>
+
+        <p class="subtitulo">
+            Algunos momentos de todos los que hemos vivido juntos.
+        </p>
+
+        
+<div class="galeria">
+
+    <div class="foto">
+        <img src="foto1.jpeg" alt="El comienzo">
+        <h3>El comienzo</h3>
+        <p>Cuando todo empezó.</p>
+    </div>
+
+    <div class="foto">
+        <img src="foto2.jpeg" alt="Nosotros">
+        <h3>Nosotros</h3>
+        <p>Un recuerdo que siempre voy a guardar.</p>
+    </div>
+
+    <div class="foto">
+        <img src="foto3.jpeg" alt="Momentos">
+        <h3>Momentos</h3>
+        <p>Porque contigo cualquier momento vale.</p>
+    </div>
+
+    <div class="foto">
+        <img src="foto4.jpeg" alt="Juntos">
+        <h3>Juntos</h3>
+        <p>Todo lo que hemos compartido.</p>
+    </div>
+
+    <div class="foto">
+        <img src="foto5.jpeg" alt="Dos años">
+        <h3>Dos años</h3>
+        <p>Y todos los recuerdos que nos quedan.</p>
+    </div>
+
+</div>
+
+
+        <br>
+
+        <button onclick="mostrarContador()">Seguir ❤️</button>
+
+    </div>
+
+
+    <!-- CONTADOR -->
+
+    <div class="contador" id="contador">
+
+        <div class="corazon-pequeno">♡</div>
+
+        <h1>Desde aquel 7 de octubre...</h1>
+
+        <p class="subtitulo">
+            Mira cuanto tiempo moooooor 😲
+        </p>
+
+        <div class="tiempo">
+
+            <div class="tiempo-caja">
+                <span id="dias">0</span>
+                <small>DÍAS</small>
+            </div>
+
+            <div class="tiempo-caja">
+                <span id="horas">0</span>
+                <small>HORAS</small>
+            </div>
+
+            <div class="tiempo-caja">
+                <span id="minutos">0</span>
+                <small>MINUTOS</small>
+            </div>
+
+            <div class="tiempo-caja">
+                <span id="segundos">0</span>
+                <small>SEGUNDOS</small>
+            </div>
+
+        </div>
+
+        <p class="contando">
+            Y seguimos contando... ❤️
+        </p>
+
+<br>
+
+<button onclick="mostrarMusica()">
+    Escuchar nuestras canciones 🎵
+</button>
+
+    </div>
+<!-- MÚSICA -->
+
+<div class="musica" id="musica">
+
+    <div class="corazon-pequeno">♡</div>
+
+    <h1>Nuestras canciones 🎵</h1>
+
+    <p class="subtitulo">
+        Algunas canciones que me hacen pensar en ti.
+    </p>
+
+    <div class="canciones">
+
+        <div class="cancion">
+
+            <h3>Cómplice Eterno</h3>
+
+            <p>Glup!</p>
+
+            <audio controls>
+                <source src="musica1.mp3" type="audio/mpeg">
+            </audio>
+                 <p class="significado">
+    El narrador de la canción invita a su pareja a considerar la relación con la seriedad y la paciencia que merece, comparando su desarrollo con la creación divina del cielo, sugiriendo que algo verdaderamente hermoso y perfecto requiere tiempo y dedicación. La repetición de la propuesta de 'pensarlo dos veces' y 'hacerlo lento' enfatiza la importancia de la reflexión y el cuidado en el avance de su relación. La canción también toca la transformación de la mujer amada, su 'despertar emocional que el narrador desea acompañar con respeto y complicidad.
+</p>
+
+        </div>
+
+
+        <div class="cancion">
+
+            <h3>Last Night on Earth</h3>
+
+            <p>Green Day</p>
+
+            <audio controls>
+                <source src="musica2.mp3" type="audio/mpeg">
+            </audio>
+ <p class="significado">
+        La canción 'Last Night On Earth' de Green Day es una balada emotiva que destaca por su sinceridad y profundidad lírica. La letra refleja un amor profundo y devoto, donde el emisor expresa su compromiso inquebrantable hacia la persona amada. La metáfora de enviar una postal simboliza el intento de comunicar sentimientos intensos y genuinos, a pesar de la incertidumbre de si el mensaje será recibido. La repetición de 'I'm sending all my love to you' enfatiza la entrega total de amor sin esperar nada a cambio.
+
+El uso de la luna como imagen poética ('You are the moonlight of my life every night') sugiere que la persona amada es una fuente constante de luz y guía en la oscuridad, reforzando la idea de un amor que ilumina y da sentido a la vida del emisor. La disposición a perderlo todo en un incendio, pero aún así enviar todo su amor, habla de un amor que trasciende las posesiones materiales y las adversidades. La canción, en su esencia, es un testimonio de amor eterno y sacrificio.
+    </p>
+        </div>
+
+
+        <div class="cancion">
+
+            <h3>La Parte de Adelante</h3>
+
+            <p>Andrés Calamaro</p>
+
+            <audio controls>
+                <source src="musica3.mp3" type="audio/mpeg">
+            </audio>
+             <p class="significado">
+        La canción también refleja un deseo de compromiso y entrega total, evidenciado
+        en versos como "Por un segundo de tu cuerpo doy el mundo", que habla de la
+        intensidad del deseo y la disposición a sacrificarlo todo por un momento de
+        compañía. La mención de querer pasar "la vida entera como estudiante el día
+        de la primavera" evoca una sensación de juventud perpetua y aprendizaje
+        constante en la compañía de la persona amada, subrayando la idea de un amor
+        que se renueva y crece con el tiempo.
+    </p>
+
+        </div>
+
+    </div>
+     
+      <button onclick="mostrarFinal()">
+    Tengo una última pregunta ❤️
+</button>
+
+</div>
+   
+   <div class="visor" id="visor">
+    <span class="cerrar">&times;</span>
+    <img id="imagenGrande">
+</div>
+       
+    
+     <div class="final" id="final">
+
+    <div class="corazon-pequeno">♡</div>
+
+    <h1>Y ahora una última pregunta...</h1>
+
+    <p>
+        Después de todo lo que hemos vivido juntos,<br>
+        ¿quieres seguir escribiendo nuestra historia conmigo?
+    </p>
+
+    <div class="opciones">
+
+        <button class="btn-si" onclick="aceptarAmor()">
+            Sí ❤️
+        </button>
+
+        <button class="btn-no" id="btnNo">
+            No
+        </button>
+
+    </div>
+
+    <div class="mensaje-final" id="mensajeFinal">
+
+        <h2>Sabía que dirías que sí ❤️</h2>
+
+        <p>
+            Entonces sigamos escribiendo nuestra historia, mi niña preciosa.
+            Todavía nos quedan muchísimos momentos, lugares, canciones,
+            risas y recuerdos por vivir juntos. RyH FOREVERRR
+            <br><br>
+            Te amo muchísimo.
+            <br><br>
+            — Tu inge R❤️
+        </p>
+
+    </div>
+
+</div>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function comenzar() {
+
+            document.querySelector(".pantalla").style.display = "none";
+
+            document.getElementById("historia").style.display = "block";
+
+        }
+
+        function mostrarRecuerdos() {
+
+            document.getElementById("historia").style.display = "none";
+
+            document.getElementById("recuerdos").style.display = "block";
+
+        }
+
+        function mostrarContador() {
+
+            document.getElementById("recuerdos").style.display = "none";
+
+            document.getElementById("contador").style.display = "block";
+
+        }
+
+function mostrarMusica() {
+
+    document.getElementById("contador").style.display = "none";
+
+    document.getElementById("musica").style.display = "block";
+
+}
+
+        function actualizarContador() {
+
+            const inicio = new Date("2024-10-07T00:00:00");
+            const ahora = new Date();
+
+            const diferencia = ahora - inicio;
+
+            const dias = Math.floor(
+                diferencia / (1000 * 60 * 60 * 24)
+            );
+
+            const horas = Math.floor(
+                (diferencia / (1000 * 60 * 60)) % 24
+            );
+
+            const minutos = Math.floor(
+                (diferencia / (1000 * 60)) % 60
+            );
+
+            const segundos = Math.floor(
+                (diferencia / 1000) % 60
+            );
+
+            document.getElementById("dias").textContent = dias;
+            document.getElementById("horas").textContent = horas;
+            document.getElementById("minutos").textContent = minutos;
+            document.getElementById("segundos").textContent = segundos;
+
+        }
+
+        actualizarContador();
+
+        setInterval(actualizarContador, 1000);
+
+ const fotos = document.querySelectorAll(".foto img");
+const visor = document.getElementById("visor");
+const imagenGrande = document.getElementById("imagenGrande");
+const cerrar = document.querySelector(".cerrar");
+
+fotos.forEach(function(foto) {
+    foto.addEventListener("click", function() {
+        imagenGrande.src = foto.src;
+        visor.style.display = "flex";
+    });
+});
+
+cerrar.addEventListener("click", function() {
+    visor.style.display = "none";
+});
+
+visor.addEventListener("click", function(evento) {
+    if (evento.target === visor) {
+        visor.style.display = "none";
+    }
+});
+
+   const btnNo = document.getElementById("btnNo");
+
+btnNo.addEventListener("mouseenter", function() {
+
+    const maxX = window.innerWidth - btnNo.offsetWidth - 40;
+    const maxY = window.innerHeight - btnNo.offsetHeight - 40;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    btnNo.style.position = "fixed";
+    btnNo.style.left = x + "px";
+    btnNo.style.top = y + "px";
+
+});
+   
+    function mostrarFinal() {
+    document.getElementById("musica").style.display = "none";
+    document.getElementById("final").style.display = "flex";
+}
+
+   function aceptarAmor() {
+
+    document.querySelector(".opciones").style.display = "none";
+
+    document.getElementById("mensajeFinal").style.display = "block";
+
+    for (let i = 0; i < 40; i++) {
+
+        const corazon = document.createElement("div");
+
+        corazon.className = "corazon-final";
+        corazon.textContent = "❤️";
+
+        corazon.style.left = Math.random() * 100 + "vw";
+        corazon.style.animationDelay = Math.random() * 2 + "s";
+
+        document.body.appendChild(corazon);
+
+        setTimeout(function() {
+            corazon.remove();
+        }, 5000);
+    }
+}
+    </script>
+
+</body>
+</html>
